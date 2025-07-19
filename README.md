@@ -10,7 +10,7 @@ This platform combines three powerful tools in a single interface:
 ---
 
 ## 🚀 Live Demo
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-multitool-platform.streamlit.app/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-assistant-suite.streamlit.app/)
 
 ---
 
