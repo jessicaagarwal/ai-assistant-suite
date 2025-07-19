@@ -97,8 +97,6 @@ streamlit
 python-dotenv
 groq
 pdfplumber
-PyPDF2
-python-docx
 httpx==0.27.0
 ```
 
