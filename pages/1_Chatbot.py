@@ -23,16 +23,17 @@ temperature = st.sidebar.slider("Creativity (temperature)", 0.0, 1.0, 0.7)
 few_shot = st.sidebar.checkbox("Enable Few-Shot Examples")
 
 # Clear chat
-if st.sidebar.button("🗑 Clear Chat"):
-    st.session_state.chatbot_messages = []
-    st.rerun()
+with st.sidebar.expander("🧰 Chat Tools", expanded=True):
+    if st.button("🗑 Clear Chat"):
+        st.session_state.chatbot_messages = []
+        st.rerun()
 
-# Download history
-if "chatbot_messages" in st.session_state and st.session_state.chatbot_messages:
-    chat_txt = "\n".join([f"{m['role'].title()}: {m['content']}" for m in st.session_state.chatbot_messages])
-    chat_json = json.dumps(st.session_state.chatbot_messages, indent=2, ensure_ascii=False)
-    st.sidebar.download_button("⬇ Chat (.txt)", chat_txt, "chat_history.txt", "text/plain")
-    st.sidebar.download_button("⬇ Chat (.json)", chat_json, "chat_history.json", "application/json")
+    if st.session_state.get("chatbot_messages"):
+        chat_txt = "\n".join([f"{m['role'].title()}: {m['content']}" for m in st.session_state.chatbot_messages])
+        chat_json = json.dumps(st.session_state.chatbot_messages, indent=2, ensure_ascii=False)
+
+        st.download_button("⬇ Chat (.txt)", chat_txt, "chat_history.txt", "text/plain")
+        st.download_button("⬇ Chat (.json)", chat_json, "chat_history.json", "application/json")
 
 # ------------------------------------------------------------------
 # Few-shot examples
